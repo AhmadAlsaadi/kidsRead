@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- الهوامش والحشوات -->
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_normal">16dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
+    <dimen name="padding_xlarge">32dp</dimen>
+    
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    
+    <!-- أحجام النصوص -->
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_xlarge">24sp</dimen>
+    <dimen name="text_size_word">72sp</dimen>
+    
+    <!-- أحجام الأزرار -->
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_height_large">60dp</dimen>
+    <dimen name="button_height_xlarge">80dp</dimen>
+    
+    <!-- نصف قطر الزوايا -->
+    <dimen name="corner_radius_small">4dp</dimen>
+    <dimen name="corner_radius_normal">8dp</dimen>
+    <dimen name="corner_radius_large">12dp</dimen>
+    <dimen name="corner_radius_xlarge">16dp</dimen>
+    
+    <!-- ارتفاعات العناصر -->
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+</resources>

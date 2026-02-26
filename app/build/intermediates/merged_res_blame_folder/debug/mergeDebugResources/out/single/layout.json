@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/ahmadalsaadi/.gradle/daemon/8.13/com.kidsread.app-mergeDebugResources-40:/layout/activity_main.xml",
+        "source": "/Users/ahmadalsaadi/.gradle/daemon/8.13/com.kidsread.app-main-43:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/ahmadalsaadi/.gradle/daemon/8.13/com.kidsread.app-mergeDebugResources-40:/layout/activity_settings.xml",
+        "source": "/Users/ahmadalsaadi/.gradle/daemon/8.13/com.kidsread.app-main-43:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "/Users/ahmadalsaadi/.gradle/daemon/8.13/com.kidsread.app-mergeDebugResources-40:/layout/colors_settings_section.xml",
+        "source": "/Users/ahmadalsaadi/.gradle/daemon/8.13/com.kidsread.app-main-43:/layout/colors_settings_section.xml"
+    },
+    {
+        "merged": "com.kidsread.app-mergeDebugResources-40:/layout/activity_settings.xml",
+        "source": "com.kidsread.app-main-43:/layout/activity_settings.xml"
+    }
+]

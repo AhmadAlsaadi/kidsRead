@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- اسم التطبيق -->
+    <string name="app_name">قراءة الأطفال</string>
+    
+    <!-- الصفحة الرئيسية -->
+    <string name="start_session">ابدأ جلسة جديدة</string>
+    <string name="start_session_message">اضغط على الزر لبدء جلسة تعليم جديدة</string>
+    <string name="mastered">متقن ✓</string>
+    <string name="not_mastered">غير متقن ✗</string>
+    <string name="session_completed">انتهت الجلسة!</string>
+    <string name="session_completed_message">أحسنت!\n\nإجمالي الكلمات: %1$d\nمتقن: %2$d\nغير متقن: %3$d\nنسبة النجاح: %4$s</string>
+    <string name="start_new_session">جلسة جديدة</string>
+    <string name="close">إغلاق</string>
+    <string name="success_rate">نسبة النجاح</string>
+    <string name="error">خطأ</string>
+    <string name="ok">حسناً</string>
+    <string name="progress_format">%1$d / %2$d</string>
+
+    <!-- صفحة الإعدادات -->
+    <string name="settings">الإعدادات</string>
+    <string name="word_length">طول الكلمة</string>
+    <string name="word_length_description">اختر عدد أحرف الكلمات المعروضة (1-5 أحرف)</string>
+    <string name="diacritic_types">أنواع التشكيل</string>
+    <string name="diacritic_types_description">اختر أنواع التشكيل المستخدمة في الكلمات</string>
+    <string name="fatha">الفتحة (َ)</string>
+    <string name="kasra">الكسرة (ِ)</string>
+    <string name="damma">الضمة (ُ)</string>
+    <string name="sukoon">السكون (ْ)</string>
+    <string name="tanween">التنوين (ً، ٍ، ٌ)</string>
+    <string name="mixed">مختلط</string>
+    <string name="words_per_session">عدد الكلمات في الجلسة</string>
+    <string name="font_size">حجم الخط</string>
+    <string name="show_statistics">عرض الإحصائيات</string>
+    <string name="about_app">عن التطبيق</string>
+    <string name="about_app_description">تطبيق قراءة الأطفال يستخدم نظام التذكر المتباعد (Spaced Repetition) لتعليم الأطفال القراءة بشكل فعال. يتم جدولة مراجعة الكلمات بناءً على أداء الطفل، مما يساعد على تحسين الذاكرة طويلة المدى.</string>
+
+    <!-- خصائص الألوان -->
+    <string name="background_color">لون الخلفية</string>
+    <string name="word_color">لون الكلمة</string>
+    <string name="diacritics_color">لون الحركات</string>
+    <string name="colors_note">ملاحظة: تطبق التغييرات فوراً على الجلسة الحالية</string>
+
+    <!-- رسائل الخطأ -->
+    <string name="error_no_words">لا توجد كلمات متاحة. يرجى إضافة كلمات أولاً.</string>
+    <string name="error_no_words_for_review">لا توجد كلمات للمراجعة حالياً</string>
+    <string name="error_general">حدث خطأ: %1$s</string>
+</resources>
