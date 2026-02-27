@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات - تعليم القراءة</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <button id="backBtn" class="icon-btn" title="رجوع">← رجوع</button>
+            <h1>⚙️ الإعدادات</h1>
+        </header>
+
+        <main class="settings-content">
+            <!-- إعدادات الكلمات -->
+            <section class="settings-section">
+                <h2 class="section-title">إعدادات الكلمات</h2>
+                
+                <div class="setting-item">
+                    <label for="wordLength">طول الكلمات:</label>
+                    <select id="wordLength" class="setting-select">
+                        <option value="1">حرف واحد</option>
+                        <option value="2">حرفان</option>
+                        <option value="3" selected>ثلاثة أحرف</option>
+                        <option value="4">أربعة أحرف</option>
+                        <option value="5">خمسة أحرف</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="wordsPerSession">عدد الكلمات في الجلسة:</label>
+                    <input type="number" id="wordsPerSession" class="setting-input" 
+                           min="5" max="50" value="10">
+                </div>
+
+                <div class="setting-item">
+                    <label>أنواع التشكيل المفضلة:</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="diacritic_FATHA" value="FATHA" checked>
+                            <span>فَتْحَة</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="diacritic_KASRA" value="KASRA">
+                            <span>كَسْرَة</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="diacritic_DAMMA" value="DAMMA">
+                            <span>ضَمَّة</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="diacritic_SUKOON" value="SUKOON">
+                            <span>سُكُون</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="diacritic_TANWEEN" value="TANWEEN">
+                            <span>تَنْوِين</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="diacritic_MIXED" value="MIXED">
+                            <span>مُخْتَلِط</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- إعدادات الألوان -->
+            <section class="settings-section">
+                <h2 class="section-title">إعدادات الألوان</h2>
+                
+                <div class="setting-item">
+                    <label for="bgColor">لون الخلفية:</label>
+                    <input type="color" id="bgColor" class="color-input" value="#FFFFFF">
+                </div>
+
+                <div class="setting-item">
+                    <label for="wordColor">لون الكلمة:</label>
+                    <input type="color" id="wordColor" class="color-input" value="#000000">
+                </div>
+            </section>
+
+            <!-- إعدادات الخط -->
+            <section class="settings-section">
+                <h2 class="section-title">إعدادات الخط</h2>
+                
+                <div class="setting-item">
+                    <label for="fontSize">حجم الخط:</label>
+                    <input type="range" id="fontSize" class="setting-range" 
+                           min="32" max="128" value="72" step="4">
+                    <span id="fontSizeValue" class="range-value">72px</span>
+                </div>
+            </section>
+
+            <!-- إعدادات العرض -->
+            <section class="settings-section">
+                <h2 class="section-title">إعدادات العرض</h2>
+                
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="showStats" checked>
+                        <span>إظهار الإحصائيات</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- أزرار الإجراءات -->
+            <div class="action-buttons">
+                <button id="saveBtn" class="btn btn-primary">💾 حفظ الإعدادات</button>
+                <button id="resetBtn" class="btn btn-secondary">🔄 إعادة التعيين</button>
+                <button id="clearDataBtn" class="btn btn-danger">🗑️ مسح جميع البيانات</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>
