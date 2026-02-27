@@ -114,6 +114,18 @@ class KidsReadApp {
         }
     }
 
+    /**
+     * خلط الكلمات عشوائياً (Fisher-Yates Shuffle)
+     */
+    shuffleArray(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
+
     startSession() {
         // إخفاء رسالة نهاية الجلسة
         this.elements.sessionComplete.classList.add('hidden');
@@ -135,9 +147,12 @@ class KidsReadApp {
         // ترتيب حسب الأولوية
         const sortedWords = SpacedRepetitionAlgorithm.sortByPriority(dueWords);
         
+        // خلط الكلمات عشوائياً
+        const shuffledWords = this.shuffleArray(sortedWords);
+        
         // اختيار عدد الكلمات المطلوبة
         this.currentSession = {
-            words: sortedWords.slice(0, this.settings.wordsPerSession),
+            words: shuffledWords.slice(0, this.settings.wordsPerSession),
             currentIndex: 0,
             correctCount: 0,
             incorrectCount: 0
