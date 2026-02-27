@@ -5,6 +5,7 @@
 class SettingsPage {
     constructor() {
         this.settings = StorageManager.loadSettings();
+        this.diacriticTypes = ['FATHA', 'KASRA', 'DAMMA', 'SUKOON', 'TANWEEN'];
         this.init();
     }
 
@@ -17,7 +18,6 @@ class SettingsPage {
     initElements() {
         this.elements = {
             wordLength: document.getElementById('wordLength'),
-            wordsPerSession: document.getElementById('wordsPerSession'),
             bgColor: document.getElementById('bgColor'),
             wordColor: document.getElementById('wordColor'),
             fontSize: document.getElementById('fontSize'),
@@ -27,38 +27,35 @@ class SettingsPage {
             resetBtn: document.getElementById('resetBtn'),
             clearDataBtn: document.getElementById('clearDataBtn'),
             backBtn: document.getElementById('backBtn'),
-            diacritics: {}
+            letterDiacriticsGroups: []
         };
 
-        // جمع checkboxes التشكيل
-        ['FATHA', 'KASRA', 'DAMMA', 'SUKOON', 'TANWEEN', 'MIXED'].forEach(type => {
-            this.elements.diacritics[type] = document.getElementById(`diacritic_${type}`);
-        });
+        this.elements.letterDiacriticsGroups = Array.from(
+            document.querySelectorAll('.letter-diacritic-group')
+        );
     }
 
     loadSettings() {
         // تحميل القيم الحالية
         this.elements.wordLength.value = this.settings.wordLength;
-        this.elements.wordsPerSession.value = this.settings.wordsPerSession;
         this.elements.bgColor.value = this.settings.backgroundColor;
         this.elements.wordColor.value = this.settings.wordColor;
         this.elements.fontSize.value = this.settings.fontSize;
         this.elements.fontSizeValue.textContent = `${this.settings.fontSize}px`;
         this.elements.showStats.checked = this.settings.showStats;
 
-        // تحميل التشكيلات المختارة
-        Object.keys(this.elements.diacritics).forEach(type => {
-            if (this.elements.diacritics[type]) {
-                this.elements.diacritics[type].checked = 
-                    this.settings.selectedDiacritics.includes(type);
-            }
-        });
+        this.applyPerLetterDiacriticsToUI();
+        this.updateLetterGroupsVisibility();
     }
 
     bindEvents() {
         // تحديث قيمة حجم الخط
         this.elements.fontSize.addEventListener('input', (e) => {
             this.elements.fontSizeValue.textContent = `${e.target.value}px`;
+        });
+
+        this.elements.wordLength.addEventListener('change', () => {
+            this.updateLetterGroupsVisibility();
         });
 
         // زر الحفظ
@@ -77,25 +74,21 @@ class SettingsPage {
     }
 
     saveSettings() {
-        // جمع التشكيلات المختارة
-        const selectedDiacritics = [];
-        Object.keys(this.elements.diacritics).forEach(type => {
-            if (this.elements.diacritics[type] && this.elements.diacritics[type].checked) {
-                selectedDiacritics.push(type);
-            }
-        });
+        const perLetterDiacritics = this.collectPerLetterDiacritics();
+        const currentLength = parseInt(this.elements.wordLength.value);
+        const hasEmptyPosition = perLetterDiacritics
+            .slice(0, currentLength)
+            .some(list => !Array.isArray(list) || list.length === 0);
 
-        // التحقق من اختيار تشكيلة واحدة على الأقل
-        if (selectedDiacritics.length === 0) {
-            alert('يجب اختيار نوع تشكيل واحد على الأقل!');
+        if (hasEmptyPosition) {
+            alert('يجب اختيار حركة واحدة على الأقل لكل حرف ظاهر.');
             return;
         }
 
         // تحديث الإعدادات
         this.settings = {
             wordLength: parseInt(this.elements.wordLength.value),
-            wordsPerSession: parseInt(this.elements.wordsPerSession.value),
-            selectedDiacritics: selectedDiacritics,
+            perLetterDiacritics: perLetterDiacritics,
             backgroundColor: this.elements.bgColor.value,
             wordColor: this.elements.wordColor.value,
             fontSize: parseInt(this.elements.fontSize.value),
@@ -123,6 +116,75 @@ class SettingsPage {
             this.loadSettings();
             this.showMessage('تم إعادة تعيين الإعدادات! 🔄');
         }
+    }
+
+    applyPerLetterDiacriticsToUI() {
+        const perLetter = this.getPerLetterDiacritics();
+
+        this.elements.letterDiacriticsGroups.forEach(group => {
+            const position = parseInt(group.dataset.position, 10);
+            const allowed = perLetter[position - 1] || [];
+            this.diacriticTypes.forEach(type => {
+                const checkbox = group.querySelector(`#letter${position}_${type}`);
+                if (checkbox) {
+                    checkbox.checked = allowed.includes(type);
+                }
+            });
+        });
+    }
+
+    getPerLetterDiacritics() {
+        if (Array.isArray(this.settings.perLetterDiacritics)) {
+            return this.normalizePerLetterDiacritics(this.settings.perLetterDiacritics);
+        }
+
+        if (Array.isArray(this.settings.selectedDiacritics) && this.settings.selectedDiacritics.length > 0) {
+            return this.normalizePerLetterDiacritics([
+                this.settings.selectedDiacritics,
+                this.settings.selectedDiacritics,
+                this.settings.selectedDiacritics,
+                this.settings.selectedDiacritics,
+                this.settings.selectedDiacritics
+            ]);
+        }
+
+        const all = [...this.diacriticTypes];
+        return this.normalizePerLetterDiacritics([all, all, all, all, all]);
+    }
+
+    normalizePerLetterDiacritics(perLetterDiacritics) {
+        const normalized = [];
+        for (let i = 0; i < 5; i++) {
+            const list = Array.isArray(perLetterDiacritics[i]) ? perLetterDiacritics[i] : [];
+            normalized.push(list.filter(type => this.diacriticTypes.includes(type)));
+        }
+        return normalized;
+    }
+
+    collectPerLetterDiacritics() {
+        const perLetter = [[], [], [], [], []];
+
+        this.elements.letterDiacriticsGroups.forEach(group => {
+            const position = parseInt(group.dataset.position, 10);
+            const selected = [];
+            this.diacriticTypes.forEach(type => {
+                const checkbox = group.querySelector(`#letter${position}_${type}`);
+                if (checkbox && checkbox.checked) {
+                    selected.push(type);
+                }
+            });
+            perLetter[position - 1] = selected;
+        });
+
+        return perLetter;
+    }
+
+    updateLetterGroupsVisibility() {
+        const length = parseInt(this.elements.wordLength.value, 10);
+        this.elements.letterDiacriticsGroups.forEach(group => {
+            const position = parseInt(group.dataset.position, 10);
+            group.style.display = position <= length ? 'block' : 'none';
+        });
     }
 
     clearData() {

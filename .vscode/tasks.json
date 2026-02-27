@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Add Vocabulary Script",
+			"type": "shell",
+			"command": "python3",
+			"args": [
+				"/Users/ahmadalsaadi/Documents/gitRepo/kidsRead/add_vocabulary.py"
+			]
+		},
+		{
+			"label": "Execute Vocabulary Addition",
+			"type": "shell",
+			"command": "python3",
+			"args": [
+				"/Users/ahmadalsaadi/Documents/gitRepo/kidsRead/execute_vocabulary.py"
+			]
+		}
+	]
+}

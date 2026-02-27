@@ -32,16 +32,43 @@ class KidsReadApp {
 
     async loadWords() {
         try {
+            // تحميل من JSON (دائماً لضمان الحصول على أحدث البيانات)
+            const response = await fetch('data/words.json');
+            const jsonWords = await response.json();
+            
             // محاولة تحميل من LocalStorage
             let storedWords = StorageManager.loadWords();
             
-            if (storedWords.length === 0) {
-                // تحميل من JSON
-                const response = await fetch('data/words.json');
-                const words = await response.json();
-                
-                // إضافة معلومات التكرار المتباعد لكل كلمة
-                this.allWords = words.map(word => ({
+            // إذا كانت البيانات المخزنة موجودة وحديثة، احتفظ بمعلومات المراجعة
+            if (storedWords.length > 0 && storedWords.length === jsonWords.length) {
+                // البيانات محدثة - احتفظ بمعلومات التقدم
+                const wordMap = new Map(storedWords.map(w => [w.id, w]));
+                this.allWords = jsonWords.map(jsonWord => {
+                    const storedWord = wordMap.get(jsonWord.id);
+                    if (storedWord) {
+                        return {
+                            ...jsonWord,
+                            reviewCount: storedWord.reviewCount || 0,
+                            lastReviewDate: storedWord.lastReviewDate || 0,
+                            nextReviewDate: storedWord.nextReviewDate || Date.now(),
+                            easeFactor: storedWord.easeFactor || 2.5,
+                            interval: storedWord.interval || 0,
+                            difficulty: storedWord.difficulty || 'NEW'
+                        };
+                    }
+                    return {
+                        ...jsonWord,
+                        reviewCount: 0,
+                        lastReviewDate: 0,
+                        nextReviewDate: Date.now(),
+                        easeFactor: 2.5,
+                        interval: 0,
+                        difficulty: 'NEW'
+                    };
+                });
+            } else {
+                // البيانات قديمة أو لا توجد - حمل من JSON
+                this.allWords = jsonWords.map(word => ({
                     ...word,
                     reviewCount: 0,
                     lastReviewDate: 0,
@@ -50,12 +77,10 @@ class KidsReadApp {
                     interval: 0,
                     difficulty: 'NEW'
                 }));
-                
-                // حفظ في LocalStorage
-                StorageManager.saveWords(this.allWords);
-            } else {
-                this.allWords = storedWords;
             }
+            
+            // حفظ في LocalStorage
+            StorageManager.saveWords(this.allWords);
         } catch (error) {
             console.error('خطأ في تحميل الكلمات:', error);
             alert('حدث خطأ في تحميل الكلمات. الرجاء تحديث الصفحة.');
@@ -114,6 +139,69 @@ class KidsReadApp {
         }
     }
 
+    getPerLetterDiacritics() {
+        if (Array.isArray(this.settings.perLetterDiacritics)) {
+            return this.settings.perLetterDiacritics;
+        }
+
+        if (Array.isArray(this.settings.selectedDiacritics) && this.settings.selectedDiacritics.length > 0) {
+            const fallback = this.settings.selectedDiacritics;
+            return [
+                [...fallback],
+                [...fallback],
+                [...fallback],
+                [...fallback],
+                [...fallback]
+            ];
+        }
+
+        return [
+            ['FATHA', 'KASRA', 'DAMMA', 'SUKOON', 'TANWEEN'],
+            ['FATHA', 'KASRA', 'DAMMA', 'SUKOON', 'TANWEEN'],
+            ['FATHA', 'KASRA', 'DAMMA', 'SUKOON', 'TANWEEN'],
+            ['FATHA', 'KASRA', 'DAMMA', 'SUKOON', 'TANWEEN'],
+            ['FATHA', 'KASRA', 'DAMMA', 'SUKOON', 'TANWEEN']
+        ];
+    }
+
+    isArabicLetter(char) {
+        return /[\u0621-\u064A]/.test(char);
+    }
+
+    getDiacriticType(diacritics) {
+        const diacriticsSet = new Set(diacritics);
+        if (diacriticsSet.has('\u064B') || diacriticsSet.has('\u064C') || diacriticsSet.has('\u064D')) {
+            return 'TANWEEN';
+        }
+        if (diacriticsSet.has('\u0652')) {
+            return 'SUKOON';
+        }
+        if (diacriticsSet.has('\u064E')) {
+            return 'FATHA';
+        }
+        if (diacriticsSet.has('\u0650')) {
+            return 'KASRA';
+        }
+        if (diacriticsSet.has('\u064F')) {
+            return 'DAMMA';
+        }
+        return null;
+    }
+
+    getWordLetterDiacritics(word) {
+        const letters = [];
+        const chars = Array.from(word);
+        chars.forEach(char => {
+            if (this.isArabicLetter(char)) {
+                letters.push({ letter: char, diacritics: [] });
+            } else if (letters.length > 0) {
+                letters[letters.length - 1].diacritics.push(char);
+            }
+        });
+
+        return letters.map(letter => this.getDiacriticType(letter.diacritics));
+    }
+
     /**
      * خلط الكلمات عشوائياً (Fisher-Yates Shuffle)
      */
@@ -131,9 +219,21 @@ class KidsReadApp {
         this.elements.sessionComplete.classList.add('hidden');
         
         // فلترة الكلمات حسب الإعدادات
+        const perLetterDiacritics = this.getPerLetterDiacritics();
         const filteredWords = this.allWords.filter(word => {
-            return word.length === this.settings.wordLength &&
-                   this.settings.selectedDiacritics.includes(word.diacriticType);
+            if (word.length !== this.settings.wordLength) {
+                return false;
+            }
+
+            const wordDiacritics = this.getWordLetterDiacritics(word.word);
+            if (wordDiacritics.length !== this.settings.wordLength) {
+                return false;
+            }
+
+            return wordDiacritics.every((type, index) => {
+                const allowed = perLetterDiacritics[index] || [];
+                return type && allowed.includes(type);
+            });
         });
 
         if (filteredWords.length === 0) {
@@ -152,15 +252,17 @@ class KidsReadApp {
         
         // اختيار عدد الكلمات المطلوبة
         this.currentSession = {
-            words: shuffledWords.slice(0, this.settings.wordsPerSession),
+            words: shuffledWords,
             currentIndex: 0,
             correctCount: 0,
             incorrectCount: 0
         };
 
+        // إذا لم توجد كلمات مستحقة للمراجعة، استخدم جميع الكلمات المفلترة للتدريب المستمر
         if (this.currentSession.words.length === 0) {
-            alert('رائع! لقد أتممت جميع الكلمات. جرب غداً!');
-            return;
+            console.log('إعادة تشغيل التدريب مع جميع الكلمات المتاحة للتدريب المستمر...');
+            const continuousWords = this.shuffleArray(filteredWords);
+            this.currentSession.words = continuousWords;
         }
 
         // إظهار أزرار التقييم
@@ -233,7 +335,7 @@ class KidsReadApp {
             incorrectCount: this.currentSession.incorrectCount,
             totalWords: this.currentSession.words.length,
             wordLength: this.settings.wordLength,
-            diacritics: this.settings.selectedDiacritics
+            diacritics: this.getPerLetterDiacritics()
         };
         StorageManager.saveSession(sessionData);
 
@@ -243,10 +345,37 @@ class KidsReadApp {
             ? Math.round((this.currentSession.correctCount / total) * 100)
             : 0;
 
-        // إظهار رسالة النهاية
+        // إظهار رسالة النهاية مع إحصائيات مفصلة
         this.elements.successRate.textContent = successRate;
-        this.elements.sessionComplete.classList.remove('hidden');
+        
+        // تحديث رسالة النهاية بشكل ديناميكي
+        const completeDiv = this.elements.sessionComplete;
+        completeDiv.innerHTML = `
+            <h2>🎉 ممتاز!</h2>
+            <p>لقد أكملت الجلسة بنجاح!</p>
+            <div class="final-stats">
+                <div class="stat-row">
+                    <span>✅ متقن:</span>
+                    <strong>${this.currentSession.correctCount}</strong>
+                </div>
+                <div class="stat-row">
+                    <span>❌ يحتاج تدريب:</span>
+                    <strong>${this.currentSession.incorrectCount}</strong>
+                </div>
+                <div class="stat-row">
+                    <span>📊 نسبة النجاح:</span>
+                    <strong>${successRate}%</strong>
+                </div>
+            </div>
+            <p class="completion-message">يمكنك بدء جلسة جديدة متى شئت! 💪</p>
+        `;
+        
+        completeDiv.classList.remove('hidden');
         this.elements.wordDisplay.textContent = '';
+        
+        // إظهار زر البدء لجلسة جديدة
+        this.elements.startBtn.classList.remove('hidden');
+        this.elements.startBtn.textContent = 'ابدأ جلسة جديدة 🔄';
         
         // إخفاء أزرار التقييم
         this.setEvaluationButtonsState(false);

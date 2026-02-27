@@ -30,38 +30,137 @@
                 </div>
 
                 <div class="setting-item">
-                    <label for="wordsPerSession">عدد الكلمات في الجلسة:</label>
-                    <input type="number" id="wordsPerSession" class="setting-input" 
-                           min="5" max="50" value="10">
-                </div>
+                    <label>تحديد حركة كل حرف:</label>
+                    <div id="letterDiacriticsContainer" class="checkbox-group">
+                        <div class="letter-diacritic-group" data-position="1">
+                            <div class="stat-label">الحرف الأول</div>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter1_FATHA" value="FATHA" checked>
+                                    <span>فَتْحَة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter1_KASRA" value="KASRA" checked>
+                                    <span>كَسْرَة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter1_DAMMA" value="DAMMA" checked>
+                                    <span>ضَمَّة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter1_SUKOON" value="SUKOON" checked>
+                                    <span>سُكُون</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter1_TANWEEN" value="TANWEEN" checked>
+                                    <span>تَنْوِين</span>
+                                </label>
+                            </div>
+                        </div>
 
-                <div class="setting-item">
-                    <label>أنواع التشكيل المفضلة:</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="diacritic_FATHA" value="FATHA" checked>
-                            <span>فَتْحَة</span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="diacritic_KASRA" value="KASRA">
-                            <span>كَسْرَة</span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="diacritic_DAMMA" value="DAMMA">
-                            <span>ضَمَّة</span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="diacritic_SUKOON" value="SUKOON">
-                            <span>سُكُون</span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="diacritic_TANWEEN" value="TANWEEN">
-                            <span>تَنْوِين</span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="diacritic_MIXED" value="MIXED">
-                            <span>مُخْتَلِط</span>
-                        </label>
+                        <div class="letter-diacritic-group" data-position="2">
+                            <div class="stat-label">الحرف الثاني</div>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter2_FATHA" value="FATHA" checked>
+                                    <span>فَتْحَة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter2_KASRA" value="KASRA" checked>
+                                    <span>كَسْرَة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter2_DAMMA" value="DAMMA" checked>
+                                    <span>ضَمَّة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter2_SUKOON" value="SUKOON" checked>
+                                    <span>سُكُون</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter2_TANWEEN" value="TANWEEN" checked>
+                                    <span>تَنْوِين</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="letter-diacritic-group" data-position="3">
+                            <div class="stat-label">الحرف الثالث</div>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter3_FATHA" value="FATHA" checked>
+                                    <span>فَتْحَة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter3_KASRA" value="KASRA" checked>
+                                    <span>كَسْرَة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter3_DAMMA" value="DAMMA" checked>
+                                    <span>ضَمَّة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter3_SUKOON" value="SUKOON" checked>
+                                    <span>سُكُون</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter3_TANWEEN" value="TANWEEN" checked>
+                                    <span>تَنْوِين</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="letter-diacritic-group" data-position="4">
+                            <div class="stat-label">الحرف الرابع</div>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter4_FATHA" value="FATHA" checked>
+                                    <span>فَتْحَة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter4_KASRA" value="KASRA" checked>
+                                    <span>كَسْرَة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter4_DAMMA" value="DAMMA" checked>
+                                    <span>ضَمَّة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter4_SUKOON" value="SUKOON" checked>
+                                    <span>سُكُون</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter4_TANWEEN" value="TANWEEN" checked>
+                                    <span>تَنْوِين</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="letter-diacritic-group" data-position="5">
+                            <div class="stat-label">الحرف الخامس</div>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter5_FATHA" value="FATHA" checked>
+                                    <span>فَتْحَة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter5_KASRA" value="KASRA" checked>
+                                    <span>كَسْرَة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter5_DAMMA" value="DAMMA" checked>
+                                    <span>ضَمَّة</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter5_SUKOON" value="SUKOON" checked>
+                                    <span>سُكُون</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="letter5_TANWEEN" value="TANWEEN" checked>
+                                    <span>تَنْوِين</span>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

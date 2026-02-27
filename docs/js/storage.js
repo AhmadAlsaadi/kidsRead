@@ -87,10 +87,16 @@ class StorageManager {
     // ====== إدارة الإعدادات ======
 
     static getDefaultSettings() {
+        const allDiacritics = ['FATHA', 'KASRA', 'DAMMA', 'SUKOON', 'TANWEEN'];
         return {
             wordLength: 3,
-            wordsPerSession: 10,
-            selectedDiacritics: ['FATHA'],
+            perLetterDiacritics: [
+                [...allDiacritics],
+                [...allDiacritics],
+                [...allDiacritics],
+                [...allDiacritics],
+                [...allDiacritics]
+            ],
             backgroundColor: '#FFFFFF',
             wordColor: '#000000',
             fontSize: 72,
@@ -103,7 +109,26 @@ class StorageManager {
     }
 
     static loadSettings() {
-        return this.load(this.KEYS.SETTINGS, this.getDefaultSettings());
+        const defaults = this.getDefaultSettings();
+        const loaded = this.load(this.KEYS.SETTINGS, defaults);
+
+        if (!loaded.perLetterDiacritics || !Array.isArray(loaded.perLetterDiacritics)) {
+            const fallback = Array.isArray(loaded.selectedDiacritics) && loaded.selectedDiacritics.length > 0
+                ? loaded.selectedDiacritics
+                : defaults.perLetterDiacritics[0];
+            loaded.perLetterDiacritics = [
+                [...fallback],
+                [...fallback],
+                [...fallback],
+                [...fallback],
+                [...fallback]
+            ];
+        }
+
+        return {
+            ...defaults,
+            ...loaded
+        };
     }
 
     static resetSettings() {
