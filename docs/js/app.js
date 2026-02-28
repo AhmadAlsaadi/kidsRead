@@ -178,6 +178,12 @@ class KidsReadApp {
         return /[\u0621-\u064A]/.test(char);
     }
 
+    normalizeWordForAnalysis(word) {
+        return (word || '')
+            .normalize('NFKC')
+            .replace(/[\u0640\u200D]/g, '');
+    }
+
     getDiacriticType(diacritics) {
         const diacriticsSet = new Set(diacritics);
         if (diacriticsSet.has('\u064B') || diacriticsSet.has('\u064C') || diacriticsSet.has('\u064D')) {
@@ -200,7 +206,8 @@ class KidsReadApp {
 
     getWordLetterDiacritics(word) {
         const letters = [];
-        const chars = Array.from(word);
+        const normalizedWord = this.normalizeWordForAnalysis(word);
+        const chars = Array.from(normalizedWord);
         chars.forEach(char => {
             if (this.isArabicLetter(char)) {
                 letters.push({ letter: char, diacritics: [] });
@@ -236,8 +243,10 @@ class KidsReadApp {
             }
 
             const wordDiacritics = this.getWordLetterDiacritics(word.word);
+
             // تحقق من أن عدد الحروف يطابق (تجاهل الحروف بدون حركات إذا كانت موجودة)
-            const lettersCount = Array.from(word.word).filter(c => this.isArabicLetter(c)).length;
+            const normalizedWord = this.normalizeWordForAnalysis(word.word);
+            const lettersCount = Array.from(normalizedWord).filter(c => this.isArabicLetter(c)).length;
             if (lettersCount !== this.settings.wordLength) {
                 return false;
             }
@@ -291,7 +300,7 @@ class KidsReadApp {
     showCurrentWord() {
         if (this.currentSession.currentIndex < this.currentSession.words.length) {
             const word = this.currentSession.words[this.currentSession.currentIndex];
-            this.elements.wordDisplay.textContent = word.word;
+            this.elements.wordDisplay.textContent = this.formatWordForDisplay(word);
             
             // تأثير الظهور
             this.elements.wordDisplay.style.animation = 'none';
@@ -299,6 +308,24 @@ class KidsReadApp {
                 this.elements.wordDisplay.style.animation = 'fadeIn 0.5s ease-in';
             }, 10);
         }
+    }
+
+    formatWordForDisplay(wordObj) {
+        const rawWord = wordObj.word || '';
+
+        if (wordObj.length !== 1) {
+            return rawWord;
+        }
+
+        const normalized = this.normalizeWordForAnalysis(rawWord);
+        const letters = Array.from(normalized).filter(char => this.isArabicLetter(char));
+
+        if (letters.length !== 1 || letters[0] !== 'ه') {
+            return rawWord;
+        }
+
+        const marks = Array.from(normalized).filter(char => !this.isArabicLetter(char));
+        return `ﻫ${marks.join('')}ـ`;
     }
 
     evaluateWord(evaluation) {

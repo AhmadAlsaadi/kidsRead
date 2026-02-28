@@ -270,7 +270,8 @@ class SettingsPage {
             const wordDiacritics = this.getWordLetterDiacritics(word.word);
             
             // تحقق من عدد الحروف
-            const lettersCount = Array.from(word.word).filter(c => this.isArabicLetter(c)).length;
+            const normalizedWord = this.normalizeWordForAnalysis(word.word);
+            const lettersCount = Array.from(normalizedWord).filter(c => this.isArabicLetter(c)).length;
             if (lettersCount !== wordLength) {
                 return false;
             }
@@ -301,6 +302,12 @@ class SettingsPage {
         return /[\u0621-\u064A]/.test(char);
     }
 
+    normalizeWordForAnalysis(word) {
+        return (word || '')
+            .normalize('NFKC')
+            .replace(/[\u0640\u200D]/g, '');
+    }
+
     getDiacriticType(diacritics) {
         const diacriticsSet = new Set(diacritics);
         if (diacriticsSet.has('\u064B') || diacriticsSet.has('\u064C') || diacriticsSet.has('\u064D')) {
@@ -323,7 +330,8 @@ class SettingsPage {
 
     getWordLetterDiacritics(word) {
         const letters = [];
-        const chars = Array.from(word);
+        const normalizedWord = this.normalizeWordForAnalysis(word);
+        const chars = Array.from(normalizedWord);
         chars.forEach(char => {
             if (this.isArabicLetter(char)) {
                 letters.push({ letter: char, diacritics: [] });
