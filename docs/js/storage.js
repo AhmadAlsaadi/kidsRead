@@ -100,6 +100,7 @@ class StorageManager {
             backgroundColor: '#FFFFFF',
             wordColor: '#000000',
             fontSize: 72,
+            fontFamily: "'Arial', sans-serif",
             showStats: true
         };
     }
@@ -113,22 +114,20 @@ class StorageManager {
         const loaded = this.load(this.KEYS.SETTINGS, defaults);
 
         if (!loaded.perLetterDiacritics || !Array.isArray(loaded.perLetterDiacritics)) {
-            const fallback = Array.isArray(loaded.selectedDiacritics) && loaded.selectedDiacritics.length > 0
-                ? loaded.selectedDiacritics
-                : defaults.perLetterDiacritics[0];
-            loaded.perLetterDiacritics = [
-                [...fallback],
-                [...fallback],
-                [...fallback],
-                [...fallback],
-                [...fallback]
-            ];
+            // إذا لم تكن البيانات صحيحة، استخدم الإعدادات الافتراضية
+            return defaults;
         }
 
         return {
             ...defaults,
             ...loaded
         };
+    }
+
+    // إعادة تعيين جميع البيانات
+    static resetAllData() {
+        this.clearAll();
+        return true;
     }
 
     static resetSettings() {

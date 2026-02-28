@@ -6,13 +6,26 @@ class SettingsPage {
     constructor() {
         this.settings = StorageManager.loadSettings();
         this.diacriticTypes = ['FATHA', 'KASRA', 'DAMMA', 'SUKOON', 'TANWEEN'];
+        this.allWords = [];
         this.init();
     }
 
     init() {
         this.initElements();
+        this.loadWords();
         this.loadSettings();
         this.bindEvents();
+    }
+
+    async loadWords() {
+        // تحميل جميع الكلمات من JSON
+        try {
+            const response = await fetch('data/words.json');
+            this.allWords = await response.json();
+        } catch (error) {
+            console.error('خطأ في تحميل الكلمات:', error);
+            this.allWords = [];
+        }
     }
 
     initElements() {
@@ -22,11 +35,15 @@ class SettingsPage {
             wordColor: document.getElementById('wordColor'),
             fontSize: document.getElementById('fontSize'),
             fontSizeValue: document.getElementById('fontSizeValue'),
+            fontFamily: document.getElementById('fontFamily'),
+            fontPreview: document.getElementById('fontPreview'),
             showStats: document.getElementById('showStats'),
             saveBtn: document.getElementById('saveBtn'),
             resetBtn: document.getElementById('resetBtn'),
             clearDataBtn: document.getElementById('clearDataBtn'),
             backBtn: document.getElementById('backBtn'),
+            wordsCountByLength: document.getElementById('wordsCountByLength'),
+            availableWordsCount: document.getElementById('availableWordsCount'),
             letterDiacriticsGroups: []
         };
 
@@ -42,10 +59,16 @@ class SettingsPage {
         this.elements.wordColor.value = this.settings.wordColor;
         this.elements.fontSize.value = this.settings.fontSize;
         this.elements.fontSizeValue.textContent = `${this.settings.fontSize}px`;
+        this.elements.fontFamily.value = this.settings.fontFamily || "'Arial', sans-serif";
         this.elements.showStats.checked = this.settings.showStats;
+
+        // تطبيق الخط على العرض التجريبي
+        this.updateFontPreview();
 
         this.applyPerLetterDiacriticsToUI();
         this.updateLetterGroupsVisibility();
+        this.updateWordCountByLength();
+        this.updateAvailableWordsCount();
     }
 
     bindEvents() {
@@ -54,8 +77,22 @@ class SettingsPage {
             this.elements.fontSizeValue.textContent = `${e.target.value}px`;
         });
 
+        // تحديث العرض التجريبي للخط
+        this.elements.fontFamily.addEventListener('change', () => {
+            this.updateFontPreview();
+        });
+
         this.elements.wordLength.addEventListener('change', () => {
             this.updateLetterGroupsVisibility();
+        });
+
+        // إضافة event listeners لجميع checkboxes الحركات لتحديث عداد الكلمات
+        this.elements.letterDiacriticsGroups.forEach(group => {
+            group.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    this.updateAvailableWordsCount();
+                });
+            });
         });
 
         // زر الحفظ
@@ -71,6 +108,11 @@ class SettingsPage {
         this.elements.backBtn.addEventListener('click', () => {
             window.location.href = 'index.html';
         });
+    }
+
+    updateFontPreview() {
+        const fontFamily = this.elements.fontFamily.value;
+        this.elements.fontPreview.style.fontFamily = fontFamily;
     }
 
     saveSettings() {
@@ -92,6 +134,7 @@ class SettingsPage {
             backgroundColor: this.elements.bgColor.value,
             wordColor: this.elements.wordColor.value,
             fontSize: parseInt(this.elements.fontSize.value),
+            fontFamily: this.elements.fontFamily.value,
             showStats: this.elements.showStats.checked
         };
 
@@ -185,6 +228,111 @@ class SettingsPage {
             const position = parseInt(group.dataset.position, 10);
             group.style.display = position <= length ? 'block' : 'none';
         });
+        
+        // تحديث عدد الكلمات المتوفرة عند تغيير طول الكلمة
+        this.updateWordCountByLength();
+        this.updateAvailableWordsCount();
+    }
+
+    updateWordCountByLength() {
+        const wordLength = parseInt(this.elements.wordLength.value, 10);
+        
+        // حساب عدد الكلمات بهذا الطول فقط
+        const wordsByLength = this.allWords.filter(word => word.length === wordLength);
+        
+        // تحديث العرض
+        if (this.elements.wordsCountByLength) {
+            this.elements.wordsCountByLength.textContent = wordsByLength.length;
+            
+            // تغيير اللون بناءً على العدد
+            if (wordsByLength.length === 0) {
+                this.elements.wordsCountByLength.style.color = '#ff6b6b';
+            } else if (wordsByLength.length < 50) {
+                this.elements.wordsCountByLength.style.color = '#ffa500';
+            } else {
+                this.elements.wordsCountByLength.style.color = '#667eea';
+            }
+        }
+    }
+
+    updateAvailableWordsCount() {
+        const wordLength = parseInt(this.elements.wordLength.value, 10);
+        const perLetterDiacritics = this.collectPerLetterDiacritics();
+        
+        // فلترة الكلمات بناءً على المعايير الحالية
+        const filteredWords = this.allWords.filter(word => {
+            // تحقق من طول الكلمة
+            if (word.length !== wordLength) {
+                return false;
+            }
+
+            // استخرج حركات كل حرف من الكلمة
+            const wordDiacritics = this.getWordLetterDiacritics(word.word);
+            
+            // تحقق من عدد الحروف
+            const lettersCount = Array.from(word.word).filter(c => this.isArabicLetter(c)).length;
+            if (lettersCount !== wordLength) {
+                return false;
+            }
+
+            // تحقق من أن كل حرف له حركة مسموح بها
+            return wordDiacritics.every((type, index) => {
+                const allowed = perLetterDiacritics[index] || [];
+                return type === null || allowed.includes(type);
+            });
+        });
+
+        // تحديث عرض العدد
+        if (this.elements.availableWordsCount) {
+            this.elements.availableWordsCount.textContent = filteredWords.length;
+            
+            // تغيير اللون بناءً على العدد
+            if (filteredWords.length === 0) {
+                this.elements.availableWordsCount.style.color = '#ff6b6b';
+            } else if (filteredWords.length < 10) {
+                this.elements.availableWordsCount.style.color = '#ffa500';
+            } else {
+                this.elements.availableWordsCount.style.color = '#ffd700';
+            }
+        }
+    }
+
+    isArabicLetter(char) {
+        return /[\u0621-\u064A]/.test(char);
+    }
+
+    getDiacriticType(diacritics) {
+        const diacriticsSet = new Set(diacritics);
+        if (diacriticsSet.has('\u064B') || diacriticsSet.has('\u064C') || diacriticsSet.has('\u064D')) {
+            return 'TANWEEN';
+        }
+        if (diacriticsSet.has('\u0652')) {
+            return 'SUKOON';
+        }
+        if (diacriticsSet.has('\u064E')) {
+            return 'FATHA';
+        }
+        if (diacriticsSet.has('\u0650')) {
+            return 'KASRA';
+        }
+        if (diacriticsSet.has('\u064F')) {
+            return 'DAMMA';
+        }
+        return null;
+    }
+
+    getWordLetterDiacritics(word) {
+        const letters = [];
+        const chars = Array.from(word);
+        chars.forEach(char => {
+            if (this.isArabicLetter(char)) {
+                letters.push({ letter: char, diacritics: [] });
+            } else if (letters.length > 0) {
+                letters[letters.length - 1].diacritics.push(char);
+            }
+        });
+
+        return letters.map(letter => this.getDiacriticType(letter.diacritics));
     }
 
     clearData() {

@@ -16,6 +16,31 @@
 			"args": [
 				"/Users/ahmadalsaadi/Documents/gitRepo/kidsRead/execute_vocabulary.py"
 			]
+		},
+		{
+			"label": "Add Fatha Words",
+			"type": "shell",
+			"command": "python3",
+			"args": [
+				"/Users/ahmadalsaadi/Documents/gitRepo/kidsRead/add_fatha_words.py"
+			]
+		},
+		{
+			"label": "Check Fatha Words",
+			"type": "shell",
+			"command": "python3",
+			"args": [
+				"/Users/ahmadalsaadi/Documents/gitRepo/kidsRead/check_fatha_words.py"
+			]
+		},
+		{
+			"label": "Commit and Push All Updates",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"cd /Users/ahmadalsaadi/Documents/gitRepo/kidsRead && git add -A && git commit -m \"feat: complete Arabic vocabulary cleanup + font settings improvements\" && git push origin main"
+			]
 		}
 	]
 }

@@ -2734,5 +2734,1205 @@
     "word": "سَعِيدٌ",
     "length": 3,
     "diacriticType": "FATHA"
+  },
+  {
+    "id": 457,
+    "word": "بَدَأَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 458,
+    "word": "بَرَزَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 459,
+    "word": "نَظَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 460,
+    "word": "جَلَسَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 461,
+    "word": "بَلَغَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 462,
+    "word": "لَعَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 463,
+    "word": "تَعَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 464,
+    "word": "تَلَفَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 465,
+    "word": "تَمَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 466,
+    "word": "ثَبَتَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 467,
+    "word": "رَكَضَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 468,
+    "word": "قَفَزَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 469,
+    "word": "جَمَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 470,
+    "word": "ذَهَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 471,
+    "word": "حَجَزَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 472,
+    "word": "حَدَثَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 473,
+    "word": "حَرَقَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 474,
+    "word": "كَتَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 475,
+    "word": "رَسَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 476,
+    "word": "أَكَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 477,
+    "word": "شَرَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 478,
+    "word": "نَزَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 479,
+    "word": "حَكَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 480,
+    "word": "نَجَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 481,
+    "word": "خَبَأَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 482,
+    "word": "غَسَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 483,
+    "word": "فَتَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 484,
+    "word": "دَخَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 485,
+    "word": "خَرَجَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 486,
+    "word": "رَجَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 487,
+    "word": "نَزَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 488,
+    "word": "صَعَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 489,
+    "word": "وَقَفَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 490,
+    "word": "مَسَكَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 491,
+    "word": "حَمَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 492,
+    "word": "وَضَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 493,
+    "word": "رَفَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 494,
+    "word": "دَفَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 495,
+    "word": "سَحَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 496,
+    "word": "تَرَكَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 497,
+    "word": "أَخَذَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 498,
+    "word": "قَدَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 499,
+    "word": "رَبَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 500,
+    "word": "طَبَخَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 501,
+    "word": "قَطَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 502,
+    "word": "سَمَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 503,
+    "word": "فَهَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 504,
+    "word": "عَلَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 505,
+    "word": "دَرَسَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 506,
+    "word": "رَقَصَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 507,
+    "word": "لَمَسَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 508,
+    "word": "ذَكَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 509,
+    "word": "زَرَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 510,
+    "word": "بَحَثَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 511,
+    "word": "طَلَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 512,
+    "word": "وَجَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 513,
+    "word": "سَبَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 514,
+    "word": "بَطَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 515,
+    "word": "صَحَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 516,
+    "word": "مَلَأَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 517,
+    "word": "فَرَغَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 518,
+    "word": "بَكَتَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 519,
+    "word": "شَرَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 520,
+    "word": "حَفَظَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 521,
+    "word": "زَحَفَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 522,
+    "word": "سَكَتَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 523,
+    "word": "مَشَطَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 524,
+    "word": "حَزَنَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 525,
+    "word": "شَرَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 526,
+    "word": "طَرَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 527,
+    "word": "شَعَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 528,
+    "word": "بَكَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 529,
+    "word": "سَقَطَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 530,
+    "word": "صَفَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 531,
+    "word": "صَرَخَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 532,
+    "word": "صَبَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 533,
+    "word": "عَبَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 534,
+    "word": "صَدَقَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 535,
+    "word": "جَهَزَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 536,
+    "word": "عَجَنَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 537,
+    "word": "مَسَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 538,
+    "word": "صَنَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 539,
+    "word": "بَعَثَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 540,
+    "word": "ضَحَكَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 541,
+    "word": "ضَرَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 542,
+    "word": "خَبَزَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 543,
+    "word": "حَفَظَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 544,
+    "word": "جَمَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 545,
+    "word": "عَدَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 546,
+    "word": "سَكَنَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 547,
+    "word": "دَرَجَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 548,
+    "word": "طَلَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 549,
+    "word": "خَدَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 550,
+    "word": "زَرَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 551,
+    "word": "سَبَقَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 552,
+    "word": "رَكَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 553,
+    "word": "ظَهَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 554,
+    "word": "جَلَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 555,
+    "word": "فَرَزَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 556,
+    "word": "بَذَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 557,
+    "word": "رَحَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 558,
+    "word": "عَدَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 559,
+    "word": "كَمَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 560,
+    "word": "سَجَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 561,
+    "word": "عَزَفَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 562,
+    "word": "هَاجَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 563,
+    "word": "جَرَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 564,
+    "word": "عَلَقَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 565,
+    "word": "دَرَسَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 566,
+    "word": "عَطَسَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 567,
+    "word": "خَتَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 568,
+    "word": "فَقَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 569,
+    "word": "تَبَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 570,
+    "word": "ثَبَتَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 571,
+    "word": "رَسَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 572,
+    "word": "عَمَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 573,
+    "word": "حَرَثَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 574,
+    "word": "غَرَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 575,
+    "word": "مَلَكَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 576,
+    "word": "قَطَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 577,
+    "word": "بَقَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 578,
+    "word": "حَكَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 579,
+    "word": "هَجَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 580,
+    "word": "غَمَزَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 581,
+    "word": "غَمَسَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 582,
+    "word": "جَمَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 583,
+    "word": "مَلَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 584,
+    "word": "فَحَصَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 585,
+    "word": "قَدَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 586,
+    "word": "فَرَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 587,
+    "word": "هَرَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 588,
+    "word": "مَرَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 589,
+    "word": "مَرَضَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 590,
+    "word": "رَبَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 591,
+    "word": "رَبَطَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 592,
+    "word": "فَرَقَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 593,
+    "word": "فَتَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 594,
+    "word": "قَرَأَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 595,
+    "word": "فَرَسَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 596,
+    "word": "بَحَثَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 597,
+    "word": "فَرَشَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 598,
+    "word": "فَقَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 599,
+    "word": "فَلَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 600,
+    "word": "نَظَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 601,
+    "word": "فَعَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 602,
+    "word": "صَعَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 603,
+    "word": "قَبَضَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 604,
+    "word": "قَبَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 605,
+    "word": "نَجَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 606,
+    "word": "دَقَقَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 607,
+    "word": "نَجَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 608,
+    "word": "خَلَطَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 609,
+    "word": "قَرَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 610,
+    "word": "قَرَصَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 611,
+    "word": "نَجَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 612,
+    "word": "نَجَزَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 613,
+    "word": "قَسَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 614,
+    "word": "قَصَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 615,
+    "word": "طَلَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 616,
+    "word": "نَجَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 617,
+    "word": "قَطَفَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 618,
+    "word": "قَفَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 619,
+    "word": "قَلَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 620,
+    "word": "هَرَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 621,
+    "word": "حَفَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 622,
+    "word": "زَهَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 623,
+    "word": "سَبَقَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 624,
+    "word": "كَبَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 625,
+    "word": "فَرَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 626,
+    "word": "كَثَرَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 627,
+    "word": "كَرَهَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 628,
+    "word": "صَدَقَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 629,
+    "word": "كَرَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 630,
+    "word": "كَسَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 631,
+    "word": "كَنَسَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 632,
+    "word": "دَعَمَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 633,
+    "word": "رَعَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 634,
+    "word": "كَمَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 635,
+    "word": "وَثَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 636,
+    "word": "وَجَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 637,
+    "word": "وَصَلَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 638,
+    "word": "وَعَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 639,
+    "word": "وَخَزَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 640,
+    "word": "لَحَسَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 641,
+    "word": "لَحَظَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 642,
+    "word": "لَحَقَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 643,
+    "word": "لَدَغَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 644,
+    "word": "لَزَقَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 645,
+    "word": "لَسَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 646,
+    "word": "وَزَنَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 647,
+    "word": "وَقَعَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 648,
+    "word": "لَفَظَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 649,
+    "word": "وَلَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 650,
+    "word": "لَمَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 651,
+    "word": "لَهَبَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 652,
+    "word": "لَهَثَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 653,
+    "word": "مَزَجَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 654,
+    "word": "مَسَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 655,
+    "word": "مَسَدَ",
+    "length": 3,
+    "diacriticType": "FATHA"
+  },
+  {
+    "id": 656,
+    "word": "مَدَحَ",
+    "length": 3,
+    "diacriticType": "FATHA"
   }
 ]

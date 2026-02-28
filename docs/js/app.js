@@ -39,8 +39,12 @@ class KidsReadApp {
             // محاولة تحميل من LocalStorage
             let storedWords = StorageManager.loadWords();
             
-            // إذا كانت البيانات المخزنة موجودة وحديثة، احتفظ بمعلومات المراجعة
-            if (storedWords.length > 0 && storedWords.length === jsonWords.length) {
+            // تحقق من نسخة البيانات بناءً على آخر ID
+            const storedLastId = storedWords.length > 0 ? Math.max(...storedWords.map(w => w.id)) : 0;
+            const jsonLastId = jsonWords.length > 0 ? Math.max(...jsonWords.map(w => w.id)) : 0;
+            
+            // إذا كانت البيانات المخزنة حديثة (نفس الـ IDs)، احتفظ بمعلومات المراجعة
+            if (storedWords.length > 0 && storedLastId === jsonLastId) {
                 // البيانات محدثة - احتفظ بمعلومات التقدم
                 const wordMap = new Map(storedWords.map(w => [w.id, w]));
                 this.allWords = jsonWords.map(jsonWord => {
@@ -67,7 +71,8 @@ class KidsReadApp {
                     };
                 });
             } else {
-                // البيانات قديمة أو لا توجد - حمل من JSON
+                // البيانات قديمة أو لا توجد - حمل من JSON وأعد تعيين جميع الكلمات
+                console.log(`تحديث البيانات: من ${storedLastId} إلى ${jsonLastId}`);
                 this.allWords = jsonWords.map(word => ({
                     ...word,
                     reviewCount: 0,
@@ -130,6 +135,11 @@ class KidsReadApp {
         
         // تطبيق حجم الخط
         this.elements.wordDisplay.style.fontSize = `${this.settings.fontSize}px`;
+        
+        // تطبيق نوع الخط
+        if (this.settings.fontFamily) {
+            this.elements.wordDisplay.style.fontFamily = this.settings.fontFamily;
+        }
         
         // إظهار/إخفاء الإحصائيات
         if (this.settings.showStats) {
@@ -226,13 +236,17 @@ class KidsReadApp {
             }
 
             const wordDiacritics = this.getWordLetterDiacritics(word.word);
-            if (wordDiacritics.length !== this.settings.wordLength) {
+            // تحقق من أن عدد الحروف يطابق (تجاهل الحروف بدون حركات إذا كانت موجودة)
+            const lettersCount = Array.from(word.word).filter(c => this.isArabicLetter(c)).length;
+            if (lettersCount !== this.settings.wordLength) {
                 return false;
             }
 
+            // للكلمات التي تحتوي على حروف بدون حركات، قم بالفلترة فقط على الحروف التي لها حركات
             return wordDiacritics.every((type, index) => {
                 const allowed = perLetterDiacritics[index] || [];
-                return type && allowed.includes(type);
+                // إذا لم تكن هناك حركة (null)، اعتبرها صحيحة (حرف بدون حركة مسموح)
+                return type === null || allowed.includes(type);
             });
         });
 
